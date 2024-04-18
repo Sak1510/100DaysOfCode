@@ -1,6 +1,8 @@
 package com.mycompany.ejercicio17;
 import java.util.Scanner;
-/**
+/**     Ejercicio Sacado de: https://www.youtube.com/watch?v=3mo5NtoIxDU&list=PLDfQIFbmwhremI6UYsjY5jTmu1usrvTJW&index=23
+ *  Rellenar de números una matriz de 3 x 3 e imprimirlos en pantalla.
+ * 
  * El papu Sak
  * @author maxim
  */

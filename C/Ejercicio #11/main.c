@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+/*
 int main(int argc, char *argv[]) {
 	FILE *arch;
 	arch = fopen("carpetaDePrueba\\archivo.txt", "w");
@@ -18,4 +19,4 @@ int main(int argc, char *argv[]) {
 	
 	system("PAUSE");
 	return 0;
-}
+}*/

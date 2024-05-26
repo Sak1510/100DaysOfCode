@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 	limpio y conciso 
 	*/
 	
-	printf("Introduce una password de un valor maximo de 8 caracteres.\nSe recomienda no incluir caracteres especiales\n");
+	printf("Introduce una password de un valor maximo de 8 caracteres.\nSe recomienda no incluir caracteres especiales, tampoco espacios\n");
 	while(conf) { 
 		while(conf) { 
 			printf("Dame tu password: ");

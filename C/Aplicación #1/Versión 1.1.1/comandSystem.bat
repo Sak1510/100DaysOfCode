@@ -1,2 +1,2 @@
 @echo off
-MD sak2020
+MD sak

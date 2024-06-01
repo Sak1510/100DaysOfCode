@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <stdbool.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 float txtToFloat(char directArch[]) {
@@ -45,26 +46,25 @@ float txtToFloat(char directArch[]) {
 	return floatNum;
 }
 
-char floatToTxt(float num, int iter) { //Carajillo va lento
-	float i = 0, numT = num, temp = numT/pow(10, i);
-	while(temp >= 10) {
-		i++;
- 	}
-	
-	printf("%.0f", i);
-	return 0;
+char floatToTxt(float num) { //Carajillo va lento
+	float i;
+	for(i = 0; i < num; i++) {
+		
+	}
 }
 
 int main(int argc, char *argv[]) {
 	//float a = txtToFloat("capital.txt");
 	//printf("Numero de coma flotante: %.2f\n", a);
-	floatToTxt(100, 2);
+	floatToTxt(1234);
 	
 	/*
-	int i;
+	float i;
 	for(i = 0; i < 10; i++) {
 		printf("%c\n", (char)i +'0');
 	}*/
+	
+	system("PAUSE");
 	return 0;
 }
 

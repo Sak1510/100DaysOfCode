@@ -127,7 +127,10 @@ int changePassword(char user[], char password[]) {
 bool loginUser(char user[], char password[]) {
 	FILE *arch;
 	char direct[100] = "", temp[100], actualPassword[100]; int i;
-	for(i = 0; i < strlen(user) +1 +strlen("password.txt"); i++) direct[i] = createDirect(user, "password.txt", i);
+	//for(i = 0; i < strlen(user) +1 +strlen("password.txt"); i++) direct[i] = createDirect(user, "password.txt", i);
+	
+	strcpy(direct, user);
+	strcat(direct, "\\password.txt");
 	
 	arch = fopen(direct, "r");
 	fgets(actualPassword, 100, arch);

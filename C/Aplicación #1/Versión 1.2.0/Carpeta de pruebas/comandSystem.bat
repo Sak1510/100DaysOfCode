@@ -1,2 +1,2 @@
 @echo off
-MD papulandia
+MD 500

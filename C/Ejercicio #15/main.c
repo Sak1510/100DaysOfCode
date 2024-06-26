@@ -13,8 +13,8 @@ float txtToFloat(char directArch[]) {
 		char floatStr[1000];
 		fgets(floatStr, 1000, arch);
 		
-		float temp;
-		int i, j, limitI = strlen(floatStr), pointUbc, temp2;
+		float temp, neg = +1, estb = 0;
+		int i, j, limitI = strlen(floatStr), pointUbc;
 		for(i = 0; i < limitI; i++) { //Identifica la ubicación del punto decimal
 			if(floatStr[i] == (int)'.') {
 				pointUbc = i;
@@ -22,8 +22,13 @@ float txtToFloat(char directArch[]) {
 				i = limitI;
 		}}
 		
+		if(floatStr[0] == (int)'-') {
+			neg = -1;
+			estb = 1;
+		}
+		
 		j = 0;
-		for(i = pointUbc -1; i > -1; i--) { //Suma los numeros enteros
+		for(i = pointUbc -1; i > -1 +estb; i--) { //Suma los numeros enteros
 			temp = floatStr[i] -'0';
 			//printf("%.0f, ", temp);
 			//printf("%f\n", temp*pow(10, j));
@@ -35,34 +40,22 @@ float txtToFloat(char directArch[]) {
 		//printf("\nNumeros decimales:\n");
 		
 		j = -1;
-		for(i = pointUbc +1; i < limitI; i++) { //Suma los numeros decimales
+		for(i = pointUbc +1; i < limitI -estb; i++) { //Suma los numeros decimales
 			temp = floatStr[i] -'0';
 			//printf("%.0f, ", temp);
 			//printf("%f\n", temp*pow(10, j));
 			floatNum += temp*pow(10, j);
 			j--;
 		}
+		
+		floatNum = floatNum *neg;
 	} else printf("\tError detectado: Archivo inexistente/faltante\n");
 	return floatNum;
 }
 
-char floatToTxt(float num) { //Carajillo va lento
-	float i;
-	for(i = 0; i < num; i++) {
-		
-	}
-}
-
 int main(int argc, char *argv[]) {
-	//float a = txtToFloat("capital.txt");
-	//printf("Numero de coma flotante: %.2f\n", a);
-	floatToTxt(1234);
-	
-	/*
-	float i;
-	for(i = 0; i < 10; i++) {
-		printf("%c\n", (char)i +'0');
-	}*/
+	float a = txtToFloat("capital.txt");
+	printf("Numero de coma flotante: %.2f\n", a);
 	
 	system("PAUSE");
 	return 0;

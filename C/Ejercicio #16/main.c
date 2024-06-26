@@ -86,7 +86,7 @@ char floatToTxt(float floatNum, int iter) {
 
 //Codigo de pruebas
 int main(int argc, char *argv[]) {
-	float N = 35/354.47 -758.14*0.4475;
+	float N = -2467.45;
 	char C[100] = "";
 	
 	int i;

@@ -6,36 +6,40 @@
 #include <math.h>
 #include <time.h>
 
-void printfSleep(char array[], int SleepC /*Sleep Corto*/, int SleepL /*Sleep Largo*/, ...) {
-	int i;
+void printfSleep(char array[], int SleepC /*Sleep Corto*/, int SleepL /*Sleep Largo*/, char string[]) {
+	int i, j, load;
+	for(i = 0; i < strlen(array); i++) if(array[i] == '&') load = i;
+	
 	for(i = 0; i < strlen(array); i++) {
-		printf("%c", array[i]);
-		if(i != strlen(array) -1) Sleep(SleepC);
+		if(i != load) printf("%c", array[i]);
+		else for(j = 0; j < strlen(string); j++) printf("%c", string[j]);
+		
+		Sleep(SleepC);
 	} Sleep(SleepL);
 }
 
 void printfStart() {
 	char inicio[5][1000] = {
-		"Iniciando",
-		"\nCargando base de datos",
-		"\nComprobando",
-		"\n\nERROR\nCorrigiendo",
-		"\nBienvenido al banco del PapuSak! Hoy dia que vamos a hacer?\n"
+		" Iniciando",
+		" \nCargando base de datos",
+		" \nComprobando",
+		" \n\nERROR\nCorrigiendo",
+		" \nBienvenido al banco del PapuSak! Hoy dia que vamos a hacer?\n"
 	}; int i;
 	
-	printfSleep(inicio[0], 10, 500); //Iniciando
+	printfSleep(inicio[0], 10, 500, ""); //Iniciando
+	for(i = 0; i < 5; i++) {
+		printf(". ");
+		Sleep(500);
+	} Sleep(1000);
+	
+	printfSleep(inicio[1], 10, 500, ""); //Cargando base de datos
 	for(i = 0; i < 5; i++) { 
 		printf(". ");
 		Sleep(500);
 	} Sleep(1000);
 	
-	printfSleep(inicio[1], 10, 500); //Cargando base de datos
-	for(i = 0; i < 5; i++) { 
-		printf(". ");
-		Sleep(500);
-	} Sleep(1000);
-	
-	printfSleep(inicio[2], 10, 500); //Comprobando
+	printfSleep(inicio[2], 10, 500, ""); //Comprobando
 	for(i = 0; i < 5; i++) { 
 		printf(". ");
 		Sleep(500);
@@ -43,14 +47,14 @@ void printfStart() {
 		
 	int numRand = rand()%70;
 	if(numRand%7 == 0) {
-		printfSleep(inicio[3], 10, 500); //ERROR\nCorrigiendo"
+		printfSleep(inicio[3], 10, 500, ""); //ERROR\nCorrigiendo"
 		for(i = 0; i < 5; i++) { 
 			printf(". ");
 			Sleep(500);
 		} printf("\n");
 	} Sleep(3000);
 	
-	printfSleep(inicio[4], 10, 0); //Bienvenido!
+	printfSleep(inicio[4], 10, 0, ""); //Bienvenido!
 	mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -WHEEL_DELTA, 0);
 }
 
@@ -69,7 +73,7 @@ void help() {
 	};
 	
 	int i;
-	for(i = 0; i < 8; i++) printfSleep(helpA[i], 10, 0);
+	for(i = 0; i < 8; i++) printfSleep(helpA[i], 10, 0, "");
 }
 
 void AltEnter() { 

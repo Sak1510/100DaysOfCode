@@ -20,6 +20,7 @@ struct mode {
 
 struct stringC {
 	char exit[100][1000];
+	char login[1000][1000];
 };
 
 //archiv.c
@@ -53,13 +54,20 @@ int main(int arcg, char *argv[]) {
 	
 	//Mejora grafica (para la 2.0.0 terminar)
 	struct stringC stringsC;
+	
 	//Exit (Case "0")
 	strcpy(stringsC.exit[0], "\tHaz salido del banco!\n");
 	strcpy(stringsC.exit[1], "\tGracias por escogernos!!\n");
 	strcpy(stringsC.exit[2], "\tSaliendo");
 	
+	//Login (Case "1")
+	strcpy(stringsC.login[0], "\tDame el usuario al que te vas a loggear: ");
+	strcpy(stringsC.login[1], "\tDame el password del usuario %s: ");
+	
+	
 	int i, j, k;
 	char newUser[100] = "", passwordUser[100] = "";
+	
 	
 	//Ciclo mientras el usuario lo decida
 	while(loop) {
@@ -81,11 +89,11 @@ int main(int arcg, char *argv[]) {
 			case 1: //Logearse a una cuenta
 				if(!user.login) {
 					char user_[100] = "", password[100] = "";
-					printf("\tDame el usuario al que te vas a loggear: ");
+					printfSleep(stringsC.login[0], 10, 100);
 					scanf("%s", &user_);
 				
 					if(existFolder(user_)) {
-						printf("\tDame el password del usuario %s: ", user_);
+						printfSleep(stringsC.login[1], 10, 100, user_);
 						scanf("%s", &password);
 						
 						if(loginUser(user_, password)) {

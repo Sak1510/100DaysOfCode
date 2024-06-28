@@ -1,2 +1,2 @@
 @echo off
-MD 1510
+MD papu

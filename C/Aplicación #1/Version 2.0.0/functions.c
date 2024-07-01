@@ -12,7 +12,7 @@ int mainComandInt(char userComand[]) {
 	char comands[9][15] = {
 		//Primera ejecucion
 		"exit",
-		"login", 
+		"login",
 		"logout", 
 		"createuser",
 		"help",

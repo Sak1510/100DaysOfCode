@@ -93,7 +93,11 @@ int main(int arcg, char *argv[]) {
 		fclose(arch);
 		
 		arch = fopen("data\\config\\completScreen.txt", "w");
-		fprintf(arch, "0");
+		fprintf(arch, "1");
+		fclose(arch);
+		
+		arch = fopen("data\\config\\showDataFolder.txt", "w");
+		fprintf(arch, "1");
 		fclose(arch);
 	}
 	

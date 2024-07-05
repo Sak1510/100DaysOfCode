@@ -1,3 +1,2 @@
 @echo off
-cd data
-MD config
+attrib -s -h "data"
